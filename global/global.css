@@ -94,6 +94,63 @@ header .container {
     object-fit: cover;
 }
 
+/* Logo (link) - mantém imagem em 48px e cria anel no hover sem reduzir a logo */
+header .container > a:first-child {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;      /* mantido em 48px */
+    height: 48px;     /* mantido em 48px */
+    border-radius: 50%;
+    position: relative;
+    overflow: visible;
+    padding: 0;
+}
+
+/* anel circular que aparece no hover (pseudo-elemento do link) */
+header .container > a:first-child::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 140%;                      /* maior que a imagem para formar o anel */
+    height: 140%;
+    transform: translate(-50%, -50%) scale(0.88);
+    border-radius: 50%;
+    border: 2px solid rgba(255, 107, 107, 0);
+    transition: transform 0.26s cubic-bezier(.2,.8,.2,1), border-color 0.22s ease, background 0.22s ease, box-shadow 0.22s ease, opacity 0.22s ease;
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.98;
+}
+
+/* a própria imagem - fixada em 48px para não diminuir */
+header .container > a:first-child img.logo {
+    width: 48px;     /* mantendo tamanho original */
+    height: 48px;    /* mantendo tamanho original */
+    object-fit: cover;
+    border-radius: 50%;
+    display: block;
+    position: relative;
+    z-index: 1;
+    transition: transform 0.22s ease;
+    border: 2px solid rgba(255, 255, 255, 0.02);
+}
+
+/* Hover / focus: anel cresce e ganha cor; a imagem dá leve zoom */
+header .container > a:first-child:hover::before,
+header .container > a:first-child:focus::before {
+    transform: translate(-50%, -50%) scale(1);
+    border-color: rgba(255, 107, 107, 0.45);
+    background: rgba(255, 107, 107, 0.06);
+    box-shadow: 0 8px 26px rgba(246, 94, 147, 0.14);
+}
+
+header .container > a:first-child:hover img.logo,
+header .container > a:first-child:focus img.logo {
+    transform: scale(1.04);
+}
+
 nav ul {
     display: flex;
     list-style: none;

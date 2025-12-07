@@ -192,3 +192,113 @@ nav a:hover {
 nav a:hover::after {
     width: 100%;
 }
+
+ /* === HAMBURGUER === */
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 25px;
+    height: 20px;
+    cursor: pointer;
+}
+
+.hamburger span {
+    display: block;
+    height: 3px;
+    background-color: #fff;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+.hamburger.open span:nth-child(1) {
+    transform: rotate(50deg) translate(5px, 5px);
+}
+
+.hamburger.open span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.open span:nth-child(3) {
+    transform: rotate(-50deg) translate(5px, -5px);
+}
+
+/* === NAV MENU RESPONSIVO === */
+
+#nav-menu {
+    display: flex;
+    align-items: center;
+}
+
+.navegacao {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+    align-items: center;
+}
+
+.navegacao a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+}
+
+.navegacao a:hover {
+    color: #ff6b6b;
+}
+
+/* Media query para mobile */
+@media (max-width: 768px) {
+    .hamburger {
+        display: flex;
+    }
+
+    #nav-menu {
+        position: fixed;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        height: calc(100vh - 60px);
+        background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: stretch;
+        transform: translateX(-100%);
+        transition: transform 0.3s ease;
+        z-index: 999;
+        padding-top: 2rem;
+        overflow-y: auto;
+    }
+
+    #nav-menu.active {
+        transform: translateX(0);
+    }
+
+    .navegacao {
+        flex-direction: column;
+        gap: 0;
+        width: 100%;
+    }
+
+    .navegacao li {
+        width: 100%;
+    }
+
+    .navegacao a {
+        display: block;
+        padding: 1rem 1.5rem;
+        border-bottom: 1px solid rgba(255, 107, 107, 0.2);
+        width: 100%;
+    }
+
+    .navegacao a:hover {
+        background-color: rgba(255, 107, 107, 0.1);
+    }
+
+    .pagina-ativa {
+        color: #ff6b6b;
+        background-color: rgba(255, 107, 107, 0.05);
+    }
+}

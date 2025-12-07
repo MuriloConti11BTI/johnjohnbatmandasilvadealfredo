@@ -1,10 +1,39 @@
-    function mostrarMensagem() {
-        const msg = document.getElementById("mensagem");
-        msg.innerText = "Você é a melhor parte dos meus dias. Te amo! 💖";
-        msg.style.display = "block";
+    function abrirCarta() {
+    const carta = document.getElementById("carta");
+    const envelope = document.getElementById("envelope");
+    const selo = document.getElementById("selo");
+    
+    if (carta.classList.contains("aberta")) {
+        // Fecha a carta
+        carta.classList.remove("aberta");
+        envelope.classList.remove("aberto");
+        selo.classList.remove("girado");
+        document.removeEventListener("click", fecharCartaFora);
+    } else {
+        // Abre a carta
+        carta.classList.add("aberta");
+        envelope.classList.add("aberto");
+        selo.classList.add("girado");
+        setTimeout(() => {
+            document.addEventListener("click", fecharCartaFora);
+        }, 100);
     }
+}
 
-    /* === CARREGAMENTO  DO LOADER AO ENTRAR === */
+function fecharCartaFora(e) {
+    const carta = document.getElementById("carta");
+    const envelope = document.getElementById("envelope");
+    const selo = document.getElementById("selo");
+    
+    if (!carta.contains(e.target) && !selo.contains(e.target) && !envelope.contains(e.target)) {
+        carta.classList.remove("aberta");
+        envelope.classList.remove("aberto");
+        selo.classList.remove("girado");
+        document.removeEventListener("click", fecharCartaFora);
+    }
+}
+
+/* === CARREGAMENTO  DO LOADER AO ENTRAR === */
 
 const MIN_TIME = 1350
 window.addEventListener("load", () => {

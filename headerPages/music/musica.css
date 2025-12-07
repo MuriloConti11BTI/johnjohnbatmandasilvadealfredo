@@ -1,1 +1,469 @@
 @import url(../../global/global.css);
+
+main{
+    background-color: #960000   ;
+}
+
+.hero{
+    height: 50rem;
+    background: linear-gradient(to bottom, #960000, #960000 , #121212);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.capa{
+    background-image: url(../imgs/imgs/IMG-20251016-WA0055.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: rgba(0,0,0,0.15);
+    background-blend-mode: multiply;
+    
+    height: 50vh;
+    width: 50vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center; 
+    border-radius: 1rem;
+}
+
+h3{
+    background-color: #960000;
+    margin-left: 1.7rem;
+    margin-top: 1rem auto;
+}
+
+.footer {
+    position: fixed;       /* fixa na tela */
+    bottom: 0;             /* encosta no rodapé */
+    left: 0;
+    width: 100%;           /* ocupa a largura toda */
+    background: #000000;
+    color: white;
+    padding: 10px 20px;
+    border-top: 1px solid #000000;
+    z-index: 9999;         /* fica por cima de tudo */
+    height: 5.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.song {
+    width: auto;
+    border-radius: 0.5rem;
+    position: absolute;
+    left: 20px;
+}
+
+.player-controls {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* botões superiores */
+.control-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    margin-bottom: 8px;
+}
+
+.btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 22px;
+    color: #e6e6e6;
+    opacity: 0.8;
+    transition: 0.2s;
+}
+
+.btn:hover {
+    opacity: 1;
+}
+
+.btn.play {
+    background: white;
+    color: black;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-size: 20px;
+}
+
+/* barra de progresso */
+.progress-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    width: 30rem;
+    margin: 0 auto;
+}
+
+#progress {
+    width: 100%;
+    height: 4px;
+    background: #555;
+    border-radius: 10px;
+    appearance: none;
+    cursor: pointer;
+}
+
+/* trilho */
+#progress::-webkit-slider-runnable-track {
+    background: #555;
+    height: 4px;
+    border-radius: 10px;
+}
+
+/* bolinha */
+#progress::-webkit-slider-thumb {
+    appearance: none;
+    height: 14px;
+    width: 14px;
+    border-radius: 50%;
+    background: #fff;
+    margin-top: -5px;
+}
+
+#current, #duration {
+    color: #c0c0c0;
+    font-size: 14px;
+}
+
+.restante{
+    background-color: #121212;
+    padding: 2rem;
+    display: flex;
+    gap: 2rem;
+    align-items: flex-start;
+    justify-content: center;
+    margin-bottom: 5rem;
+}
+
+.artista {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 30rem;
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 1.5rem;
+    border-radius: 1rem;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.artista:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(150, 0, 0, 0.3);
+}
+
+.artista img {
+    width: 100%;
+    border-radius: 1rem;
+    margin-bottom: 1.5rem;
+    object-fit: cover;
+}
+
+.artista-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.artista-info .label {
+    font-size: 0.9rem;
+    color: #960000;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05rem;
+}
+
+.artista-info .nome {
+    font-size: 1.8rem;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+.artista-info .ouvintes {
+    font-size: 0.95rem;
+    color: #c0c0c0;
+}
+
+.artista-info .descricao {
+    font-size: 0.95rem;
+    color: #e0e0e0;
+    line-height: 1.6;
+    margin-top: 0.5rem;
+}
+
+.cards-lateral {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    flex: 0 0 35rem;
+}
+
+.creditos {
+    color: #ffffff;
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 1.5rem;
+    border-radius: 1rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.creditos:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(150, 0, 0, 0.3);
+}
+
+.creditos .titulo {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #ffffff;
+    margin-bottom: 1.2rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 2px solid #960000;
+}
+
+.credito-item {
+    margin-bottom: 1.2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.credito-item:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.credito-item .nome-credito {
+    font-size: 1rem;
+    color: #ffffff;
+    font-weight: 600;
+    margin: 0;
+}
+
+.credito-item .funcao {
+    font-size: 0.9rem;
+    color: #c0c0c0;
+    margin: 0.4rem 0 0 0;
+}
+
+.eventos {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 1.5rem;
+    border-radius: 1rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.eventos:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(150, 0, 0, 0.3);
+}
+
+.eventos .titulo {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #ffffff;
+    margin-bottom: 1.2rem;
+    width: 100%;
+    padding-bottom: 0.8rem;
+    border-bottom: 2px solid #960000;
+}
+
+.eventos img {
+    width: 100%;
+    border-radius: 0.8rem;
+    object-fit: cover;
+}
+
+/* Responsividade */
+@media (max-width: 1200px) {
+    .restante {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .artista {
+        width: 100%;
+        max-width: 35rem;
+    }
+
+    .cards-lateral {
+        width: 100%;
+        max-width: 35rem;
+    }
+
+    .creditos,
+    .eventos {
+        width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .restante {
+        padding: 1rem;
+        gap: 1rem;
+    }
+
+    .artista {
+        width: 100%;
+    }
+
+    .artista-info .nome {
+        font-size: 1.5rem;
+    }
+
+    .artista-info .descricao {
+        font-size: 0.85rem;
+    }
+
+    .cards-lateral {
+        width: 100%;
+        gap: 1rem;
+    }
+
+    .creditos,
+    .eventos {
+        padding: 1rem;
+    }
+
+    .creditos .titulo,
+    .eventos .titulo {
+        font-size: 1.1rem;
+        margin-bottom: 0.8rem;
+    }
+
+    .credito-item {
+        margin-bottom: 0.8rem;
+        padding-bottom: 0.8rem;
+    }
+
+    .credito-item .nome-credito {
+        font-size: 0.9rem;
+    }
+
+    .credito-item .funcao {
+        font-size: 0.8rem;
+    }
+
+    .progress-container {
+        width: 90%;
+    }
+
+    .hero {
+        height: 30rem;
+    }
+
+    .capa {
+        height: 30vh;
+        width: 30vh;
+    }
+}
+
+@media (max-width: 480px) {
+    main {
+        padding: 0;
+    }
+
+    .song{
+        display: none;
+    }
+
+    .restante {
+        padding: 0.8rem;
+        gap: 0.8rem;
+        margin-bottom: 6rem;
+    }
+
+    .artista {
+        padding: 1rem;
+    }
+
+    .artista-info .label {
+        font-size: 0.8rem;
+    }
+
+    .artista-info .nome {
+        font-size: 1.3rem;
+    }
+
+    .artista-info .ouvintes {
+        font-size: 0.85rem;
+    }
+
+    .artista-info .descricao {
+        font-size: 0.8rem;
+        line-height: 1.5;
+    }
+
+    .creditos,
+    .eventos {
+        padding: 0.8rem;
+    }
+
+    .creditos .titulo,
+    .eventos .titulo {
+        font-size: 1rem;
+        margin-bottom: 0.6rem;
+        padding-bottom: 0.6rem;
+    }
+
+    .credito-item {
+        margin-bottom: 0.6rem;
+        padding-bottom: 0.6rem;
+    }
+
+    .credito-item .nome-credito {
+        font-size: 0.85rem;
+    }
+
+    .credito-item .funcao {
+        font-size: 0.75rem;
+    }
+
+    .progress-container {
+        width: 100%;
+        gap: 8px;
+    }
+
+    #current, #duration {
+        font-size: 12px;
+    }
+
+    .hero {
+        height: 40rem;
+    }
+
+    .capa {
+        height: 40vh;
+        width: 40vh;
+    }
+
+    h3 {
+        font-size: 1.2rem;
+        margin-left: 0.8rem;
+    }
+
+    .footer {
+        height: 6rem;
+        padding: 0.5rem;
+    }
+
+    .song {
+        width: 40px;
+    }
+}

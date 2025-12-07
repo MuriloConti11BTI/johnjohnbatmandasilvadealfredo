@@ -31,7 +31,29 @@
 
         </div>
     </header>
-    
+
+        <h1>Galeria</h1>
+            <div class="controls">
+            <input id="search" type="search" placeholder="Filtrar por data YYYYMMDD" />
+            <button id="shuffle">Embaralhar</button>
+            <button id="sort">Ordenar por Data</button>
+            <div class="meta" id="meta"></div>
+            </div>
+
+
+            <main>
+            <div id="gallery" class="gallery"></div>
+            </main>
+
+
+            <div id="lightbox" class="lightbox">
+            <button class="lb-close" id="lbClose">✕</button>
+            <button class="lb-nav lb-prev" id="lbPrev">◀</button>
+            <img id="lbImg" src="" alt="" />
+            <button class="lb-nav lb-next" id="lbNext">▶</button>
+            </div>
+
+    <script src="galeria.js"></script>
     <script src="../../main.js"></script>
 
 </body>
